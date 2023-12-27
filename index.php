@@ -23,8 +23,17 @@ else
 
     $get_data="select Name,Phone_Num from contact_book";
 
-    $update_data = "UPDATE contact_book SET 'addresses'='Mumbai' WHERE Phone_Num=9658740352";
-    
+    $sql = "UPDATE `contact_book` SET `addresses`='Delhi' WHERE Phone_Num=9658740352";
+    $res=mysqli_query($connection,$sql);
+    if($res)
+    {
+        echo "Update Success<br/>";
+    }
+    else
+    {
+        echo "Update Unsuccessful<br/>";
+    }
+
     $result=mysqli_query($connection,$get_data);
     
     if($count=mysqli_num_rows($result))
@@ -40,11 +49,8 @@ else
         }
         echo "</tr>";
 
-        $result=mysqli_query($connection,$update_data);
-        if($status = mysqli_num_rows($result))
-        {
-            echo "Update Success";
-        }
+        
+       
 
     }
     else
