@@ -19,17 +19,19 @@ else
 
     // $q="INSERT INTO contact_book values ('Friend1',8789524870)";
 
-    $Alter_Query="ALTER TABLE contact_book ADD addresses varchar(100) NOT NULL AFTER Phone_Num";
+    // $Alter_Query="ALTER TABLE contact_book ADD addresses varchar(100) NOT NULL AFTER Phone_Num";
+
+    $get_data="select Name from contact_book";
     
-    $result=mysqli_query($connection,$Alter_Query);
+    $result=mysqli_query($connection,$get_data);
     
-    if($result)
+    if($count=mysqli_num_rows($result))
     {
-        echo "New Column Creation Successful ";
+        echo $count." Results Found";
     }
     else
     {
-        echo "New Column Creation Unsuccessful ";
+        echo "Operation Unsuccessful ";
     }
 }
 ?>
