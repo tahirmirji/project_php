@@ -28,6 +28,11 @@ else
     if($count=mysqli_num_rows($result))
     {
         echo $count." Results Found";
+
+        while($row=mysqli_fetch_array($result))
+        {
+            echo "<p>$row[0]</p>";
+        }
     }
     else
     {
