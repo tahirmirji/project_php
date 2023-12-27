@@ -21,9 +21,9 @@ else
 
     // $Alter_Query="ALTER TABLE contact_book ADD addresses varchar(100) NOT NULL AFTER Phone_Num";
 
-    $get_data="select Name,Phone_Num from contact_book";
+    $get_data="select Name,Phone_Num,addresses from contact_book";
 
-    $sql = "UPDATE `contact_book` SET `addresses`='Delhi' WHERE Phone_Num=9658740352";
+    $sql = "UPDATE `contact_book` SET `addresses`='Bengaluru' WHERE Phone_Num=9658740352";
     $res=mysqli_query($connection,$sql);
     if($res)
     {
@@ -41,11 +41,11 @@ else
         echo $count." Results Found";
         echo "<table border=1>";
 
-        echo "<tr><th>Name</th> <th>Phone Number</th></tr>";
+        echo "<tr><th>Name</th> <th>Phone Number</th> <th>Address</th></tr>";
 
         while($row=mysqli_fetch_array($result))
         {
-            echo "<tr> <td>$row[0]</td> <td>$row[1]</td> </tr>";
+            echo "<tr> <td>$row[0]</td> <td>$row[1]</td>  <td>$row[2]</td></tr>";
         }
         echo "</tr>";
 
